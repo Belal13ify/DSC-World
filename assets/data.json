@@ -1,12 +1,12 @@
 {
   "continents": {
-    "AF": "Africa",
-    "AN": "Antarctica",
-    "AS": "Asia",
-    "EU": "Europe",
-    "NA": "North America",
-    "OC": "Oceania",
-    "SA": "South America"
+    "assets/images/africa.png": "Africa",
+    "assets/images/antarctica.png": "Antarctica",
+    "assets/images/asia.png": "Asia",
+    "assets/images/europe.png": "Europe",
+    "assets/images/north_america.png": "North America",
+    "assets/images/oceania.png": "Oceania",
+    "assets/images/south_america.png": "South America"
   },
   "countries": {
     "AD": {

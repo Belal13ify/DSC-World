@@ -14,6 +14,16 @@ class Data {
     return data;
   }
 
+  Future<List> getImagesPath() async {
+    List imagePath = [];
+    var data = await decodeJson();
+
+    for (String path in data['continents'].keys) {
+      imagePath.add(path);
+    }
+    return imagePath;
+  }
+
   Future<List> getContinents() async {
     List continents = [];
     var data = await decodeJson();

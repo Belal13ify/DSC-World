@@ -1,6 +1,6 @@
 import 'package:dsc_world/models/data.dart';
 import 'package:dsc_world/widgets/continent_container.dart';
-import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+// import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:flutter/material.dart';
 
 class Continents extends StatefulWidget {
@@ -10,11 +10,13 @@ class Continents extends StatefulWidget {
 
 class _ContinentsState extends State<Continents> {
   List continents = [];
+  List paths = [];
 
   Data data = Data();
 
   void loadingContinents() async {
     continents = await data.getContinents();
+    paths = await data.getImagesPath();
     setState(() {});
   }
 
@@ -47,9 +49,15 @@ class _ContinentsState extends State<Continents> {
         itemCount: continents.length,
         itemBuilder: (BuildContext context, int index) {
           String continent = continents[index];
+          String path = paths[index];
 
           return ContinentContainer(
-              continent: continent, imagePath: 'assets/images/africa.png');
+            continent: continent,
+            imagePath: path,
+            pressed: () {
+              print(continent);
+            },
+          );
         });
   }
 }

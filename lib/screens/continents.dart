@@ -3,6 +3,8 @@ import 'package:dsc_world/widgets/continent_container.dart';
 // import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:flutter/material.dart';
 
+import 'countries_screen.dart';
+
 class Continents extends StatefulWidget {
   @override
   _ContinentsState createState() => _ContinentsState();
@@ -55,6 +57,10 @@ class _ContinentsState extends State<Continents> {
             continent: continent,
             imagePath: path,
             pressed: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => Countries(continent: continent)));
               print(continent);
             },
           );

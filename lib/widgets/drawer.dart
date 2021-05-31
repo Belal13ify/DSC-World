@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:dsc_world/Controler/controler.dart';
+import 'package:get_storage/get_storage.dart';
 
-class DrawerSection extends StatefulWidget {
-  @override
-  _DrawerSectionState createState() => _DrawerSectionState();
-}
+class DrawerSection extends StatelessWidget {
+  final box = GetStorage();
 
-bool pressed = false;
-
-class _DrawerSectionState extends State<DrawerSection> {
   @override
   Widget build(BuildContext context) {
+    DarkModeControler sx = Get.find();
+
     return Drawer(
       child: ListView(
         children: [
@@ -29,20 +29,19 @@ class _DrawerSectionState extends State<DrawerSection> {
             ),
           ),
           ListTile(
-            onTap: () {
-              setState(() {
-                pressed = !pressed;
-              });
-            },
             title: Text(
               'DARK MODE',
               style: TextStyle(fontSize: 18, color: Colors.blueGrey),
             ),
-            trailing: Icon(
-              pressed ? Icons.toggle_on : Icons.toggle_off,
-              size: 60,
-              color: pressed ? Colors.green : Colors.grey,
-            ),
+            trailing: GetX<DarkModeControler>(builder: (controler) {
+              return Switch(
+                  activeColor: Colors.green,
+                  value: sx.isActive.value,
+                  onChanged: (val) {
+                    sx.changeMode();
+                    box.write('isDark', val);
+                  });
+            }),
           )
         ],
       ),

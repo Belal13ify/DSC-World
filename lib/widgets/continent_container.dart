@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class ContinentContainer extends StatelessWidget {
   final String continent;
   final String imagePath;
-  VoidCallback pressed;
+  final VoidCallback pressed;
   ContinentContainer(
       {required this.continent,
       required this.imagePath,

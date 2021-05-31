@@ -14,23 +14,32 @@ class Data {
     return data;
   }
 
-  Future<List> getImagesPath() async {
-    List imagePath = [];
-    var data = await decodeJson();
-
-    for (String path in data['continents'].keys) {
-      imagePath.add(path);
-    }
-    return imagePath;
-  }
-
   Future<List> getContinents() async {
     List continents = [];
     var data = await decodeJson();
 
-    for (String continent in data['continents'].values) {
-      continents.add(continent);
-    }
+    var continentJson = data['continents'];
+
+    continentJson.forEach((k, v) {
+      continents.add(v);
+    });
+
     return continents;
+  }
+
+  Future<List> getCountries(String continent) async {
+    List countries = [];
+    var data = await decodeJson();
+    var continentJson = data['continents'];
+    var countriesjSON = data['countries'];
+
+    countriesjSON.forEach((k, v) {
+      //parsing countries and matching the pressed continent
+      if (continentJson[v['continent']] == continent) {
+        countries.add(v['name']);
+      }
+    });
+
+    return countries;
   }
 }

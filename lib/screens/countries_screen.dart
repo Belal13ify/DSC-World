@@ -1,10 +1,9 @@
+import 'package:dsc_world/screens/home.dart';
 import 'package:flutter/material.dart';
 import '../widgets/single_country_container.dart';
+import 'package:get/get.dart';
 
 class Countries extends StatelessWidget {
-  final String continent;
-  final List countries;
-  Countries({required this.continent, required this.countries});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,18 +22,18 @@ class Countries extends StatelessWidget {
                     radius: 20,
                     child: BackButton(
                       onPressed: () {
-                        Navigator.pop(context);
+                        Get.off(HomeScreen());
                       },
                       color: Colors.white,
                     ),
                   ),
                 ),
                 Text(
-                  continent,
+                  Get.arguments[0],
                   textAlign: TextAlign.center,
                   style: TextStyle(
                       fontSize: 30,
-                      color: Color(0xff043551),
+                      // color: Color(0xff043551),
                       fontWeight: FontWeight.w400),
                 ),
                 SizedBox(
@@ -44,9 +43,9 @@ class Countries extends StatelessWidget {
             ),
             Expanded(
               child: ListView.builder(
-                  itemCount: countries.length,
+                  itemCount: Get.arguments[1].length,
                   itemBuilder: (BuildContext context, int index) {
-                    var name = countries[index];
+                    var name = Get.arguments[1][index];
                     return CountryContainer(
                       countryName: name,
                     );

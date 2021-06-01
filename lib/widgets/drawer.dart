@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:dsc_world/Controler/controler.dart';
+import 'package:dsc_world/Controllers/darkmode_controller.dart';
 import 'package:get_storage/get_storage.dart';
 
 class DrawerSection extends StatelessWidget {
@@ -8,8 +8,6 @@ class DrawerSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    DarkModeControler sx = Get.find();
-
     return Drawer(
       child: ListView(
         children: [
@@ -17,7 +15,10 @@ class DrawerSection extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Image.asset('assets/images/loading.gif'),
+                Image.asset(
+                  'assets/images/logo.png',
+                  width: 100,
+                ),
                 Text(
                   'DSC World',
                   style: TextStyle(
@@ -33,12 +34,12 @@ class DrawerSection extends StatelessWidget {
               'DARK MODE',
               style: TextStyle(fontSize: 18, color: Colors.blueGrey),
             ),
-            trailing: GetX<DarkModeControler>(builder: (controler) {
+            trailing: GetBuilder<DarkModeControler>(builder: (controler) {
               return Switch(
                   activeColor: Colors.green,
-                  value: sx.isActive.value,
+                  value: controler.isActive,
                   onChanged: (val) {
-                    sx.changeMode();
+                    controler.changeMode();
                     box.write('isDark', val);
                   });
             }),

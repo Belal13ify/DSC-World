@@ -5,9 +5,6 @@ import 'continents.dart';
 import 'favourite.dart';
 
 class HomeScreen extends StatefulWidget {
-  // final favouriteList;
-
-  // HomeScreen(this.favouriteList);
   @override
   _HomeScreenState createState() => _HomeScreenState();
 }
@@ -25,12 +22,13 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          iconTheme: IconThemeData(color: Colors.black),
           backgroundColor: Colors.transparent,
           elevation: 0.0,
           title: Text(
             'DSC World',
-            style: TextStyle(fontSize: 22, color: Color(0xff043551)),
+            style: TextStyle(
+              fontSize: 22,
+            ),
           ),
           centerTitle: true),
       body: SafeArea(

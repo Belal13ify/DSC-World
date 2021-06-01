@@ -1,34 +1,37 @@
+import 'package:get/get.dart';
 import 'dart:async' show Future;
 import 'package:flutter/services.dart' show rootBundle;
 import 'dart:convert';
 
-class Data {
-  Future<String> loadJson() async {
-    return await rootBundle.loadString('assets/data.json');
+//Dark Mode Controlere
+
+// Loading Data from the jSON
+class Data extends GetxController {
+  List<String> continents = [];
+  List<String> countries = [];
+
+  @override
+  void onInit() {
+    getContinents();
+    super.onInit();
   }
 
   Future decodeJson() async {
-    String jsonString = await loadJson();
+    String jsonString = await rootBundle.loadString('assets/data.json');
     final data = json.decode(jsonString);
-
     return data;
   }
 
-  Future<List> getContinents() async {
-    List continents = [];
+  Future<void> getContinents() async {
     var data = await decodeJson();
-
     var continentJson = data['continents'];
-
     continentJson.forEach((k, v) {
       continents.add(v);
     });
-
-    return continents;
+    update();
   }
 
-  Future<List> getCountries(String continent) async {
-    List countries = [];
+  Future<void> getCountries(String continent) async {
     var data = await decodeJson();
     var continentJson = data['continents'];
     var countriesjSON = data['countries'];
@@ -40,6 +43,6 @@ class Data {
       }
     });
 
-    return countries;
+    update();
   }
 }

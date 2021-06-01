@@ -26,16 +26,16 @@ class CountryContainer extends StatelessWidget {
                   style: TextStyle(fontSize: 20, color: Colors.white)),
               trailing: GestureDetector(
                 child: Icon(
-                  value.getFavourite(countryName)
+                  value.checkIconFavourite(countryName)
                       ? Icons.star
                       : Icons.star_border,
-                  color: value.getFavourite(countryName)
+                  color: value.checkIconFavourite(countryName)
                       ? Colors.yellow
                       : Colors.grey,
                   size: 35,
                 ),
                 onTap: () async {
-                  value.checkfavourite(countryName);
+                  await value.checkfavourite(countryName);
                 },
               ),
             ),

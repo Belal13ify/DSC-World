@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:get_storage/get_storage.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:get/get.dart';
 
 class DarkModeControler extends GetxController {
   bool isActive = false;
-  final box = GetStorage();
   get darkTheme => ThemeData(
         primarySwatch: Colors.grey,
         appBarTheme:
@@ -37,13 +36,14 @@ class DarkModeControler extends GetxController {
 
   @override
   void onInit() {
+    checkMode();
     super.onInit();
-    isActive = box.read('isDark') ?? false;
   }
 
-  void changeMode() {
-    isActive = !isActive;
-    // box.write('isDark', isActive.value);
+  void checkMode() async {
+    final prefs = await SharedPreferences.getInstance();
+    isActive = prefs.getBool('isDark') ?? false;
+
     update();
   }
 }

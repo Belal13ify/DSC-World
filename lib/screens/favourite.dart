@@ -15,11 +15,8 @@ class Favourite extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  'Favourites',
+                  'Favourite Countries',
                   style: TextStyle(fontSize: 25, fontWeight: FontWeight.w600),
-                ),
-                SizedBox(
-                  width: 35,
                 ),
               ],
             ),
@@ -32,7 +29,7 @@ class Favourite extends StatelessWidget {
                       var name = value.favouriteList[index];
                       return Padding(
                         padding: const EdgeInsets.only(
-                            left: 25.0, right: 25.0, top: 10),
+                            left: 15.0, right: 15.0, top: 10),
                         child: Card(
                           color: Color(0xff043551),
                           shape: RoundedRectangleBorder(

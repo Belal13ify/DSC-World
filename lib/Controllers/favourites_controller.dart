@@ -26,18 +26,15 @@ class FavouritesControler extends GetxController {
     if (isFavourite) {
       favouriteList.remove(country);
       prefs.setStringList('favouriteList', favouriteList);
-      prefs.setBool('isFavourite', isFavourite);
     } else {
       favouriteList.add(country);
       prefs.setStringList('favouriteList', favouriteList);
-      prefs.setBool('isFavourite', isFavourite);
     }
 
-    isFavourite = prefs.getBool('isFavourite') ?? false;
     update();
   }
 
-  bool getFavourite(String country) {
+  bool checkIconFavourite(String country) {
     return favouriteList.contains(country) ? true : false;
   }
 }

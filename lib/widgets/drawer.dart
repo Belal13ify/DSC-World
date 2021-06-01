@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:dsc_world/Controllers/darkmode_controller.dart';
-import 'package:get_storage/get_storage.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class DrawerSection extends StatelessWidget {
-  final box = GetStorage();
-
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -38,9 +36,10 @@ class DrawerSection extends StatelessWidget {
               return Switch(
                   activeColor: Colors.green,
                   value: controler.isActive,
-                  onChanged: (val) {
-                    controler.changeMode();
-                    box.write('isDark', val);
+                  onChanged: (val) async {
+                    final prefs = await SharedPreferences.getInstance();
+                    prefs.setBool('isDark', val);
+                    controler.checkMode();
                   });
             }),
           )

@@ -22,7 +22,7 @@ class Countries extends StatelessWidget {
                     radius: 20,
                     child: BackButton(
                       onPressed: () {
-                        Get.off(HomeScreen());
+                        Get.off(() => HomeScreen());
                       },
                       color: Colors.white,
                     ),

@@ -9,6 +9,15 @@ import 'dart:convert';
 class Data extends GetxController {
   List<String> continents = [];
   List<String> countries = [];
+  String continentName = '';
+  String countryName = '';
+  String nativeName = '';
+  String phoneCode = '';
+  String continent = '';
+  String captial = '';
+  String currency = '';
+  List<dynamic> languages = [];
+  String emoji = '';
 
   @override
   void onInit() {
@@ -33,6 +42,7 @@ class Data extends GetxController {
 
   Future<void> getCountries(String continent) async {
     var data = await decodeJson();
+    countries = [];
     var continentJson = data['continents'];
     var countriesjSON = data['countries'];
 
@@ -42,7 +52,24 @@ class Data extends GetxController {
         countries.add(v['name']);
       }
     });
-
+    continentName = continent;
     update();
+  }
+
+  Future<void> getCountryInfo(String country) async {
+    var data = await decodeJson();
+    var countriesjSON = data['countries'];
+    countriesjSON.forEach((k, v) {
+      if (v['name'] == country) {
+        countryName = country;
+        nativeName = v['native'];
+        phoneCode = v['phone'];
+        continent = v['continent'];
+        captial = v['capital'];
+        currency = v['currency'];
+        languages = v['languages'];
+        emoji = v['emoji'];
+      }
+    });
   }
 }

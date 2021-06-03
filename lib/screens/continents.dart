@@ -8,7 +8,6 @@ class Continents extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetBuilder<Data>(
-      init: Data(),
       builder: (value) => GridView(
         padding: EdgeInsets.symmetric(horizontal: 15),
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -19,7 +18,8 @@ class Continents extends StatelessWidget {
               imagePath: 'assets/images/$continent.png',
               pressed: () async {
                 await value.getCountries(continent);
-                Get.off(Countries(), arguments: [continent, value.countries]);
+
+                Get.to(() => Countries());
               });
         }).toList(),
       ),

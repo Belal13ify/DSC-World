@@ -1,7 +1,6 @@
-// import 'package:dsc_world/widgets/bottom_navigation.dart';
-import '/widgets/bottomNav_bar.dart';
+import '../widgets/bottomNav_bar.dart';
 import 'package:flutter/material.dart';
-import '/widgets/drawer.dart';
+import '../widgets/drawer.dart';
 import 'continents.dart';
 import 'favourite.dart';
 import 'package:dsc_world/Controllers/bottomNavigation_Controller.dart';

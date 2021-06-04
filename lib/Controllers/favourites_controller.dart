@@ -37,4 +37,11 @@ class FavouritesControler extends GetxController {
   bool checkIconFavourite(String country) {
     return favouriteList.contains(country) ? true : false;
   }
+
+  Future<void> deleteFromFavScreen(String country) async {
+    final prefs = await SharedPreferences.getInstance();
+    favouriteList.remove(country);
+    prefs.setStringList('favouriteList', favouriteList);
+    update();
+  }
 }

@@ -13,11 +13,11 @@ class Countries extends StatelessWidget {
             title: Text(
               value.continentName,
               style: TextStyle(
-                fontSize: 30,
-                color: Colors.black,
+                fontSize: 28,
+                color: Colors.white,
               ),
             ),
-            backgroundColor: Colors.orange[600],
+            backgroundColor: Color(0xffF44236),
             centerTitle: true),
         body: SafeArea(
             child: Padding(

@@ -1,3 +1,4 @@
+import 'package:dsc_world/Controllers/favourites_controller.dart';
 import 'package:dsc_world/Controllers/jsonData_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -8,16 +9,26 @@ class CountryInfo extends StatelessWidget {
     return GetBuilder<Data>(
       builder: (value) => Scaffold(
           appBar: AppBar(
-              backgroundColor: Colors.orange[600],
+              backgroundColor: Color(0xffF44236),
               title: Text(value.countryName,
-                  style: TextStyle(fontSize: 22, color: Colors.black)),
+                  style: TextStyle(fontSize: 22, color: Colors.white)),
               centerTitle: true,
               actions: [
-                IconButton(
-                  onPressed: () {},
-                  icon: Icon(Icons.star_border),
-                  color: Colors.black,
-                  iconSize: 45,
+                GetBuilder<FavouritesControler>(
+                  builder: (controller) => IconButton(
+                    onPressed: () async {
+                      await controller.checkfavourite(value.countryName);
+                    },
+                    icon: Icon(
+                        controller.checkIconFavourite(value.countryName)
+                            ? Icons.star
+                            : Icons.star_border,
+                        color: controller.checkIconFavourite(value.countryName)
+                            ? Colors.yellow
+                            : Colors.black54),
+                    color: Colors.black,
+                    iconSize: 45,
+                  ),
                 )
               ]),
           body: SafeArea(

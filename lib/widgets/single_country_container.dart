@@ -21,6 +21,7 @@ class CountryContainer extends StatelessWidget {
                 borderRadius: BorderRadius.circular(28.0)),
             child: GetBuilder<FavouritesControler>(
               init: FavouritesControler(),
+              autoRemove: false,
               builder: (value) => Padding(
                 padding: const EdgeInsets.only(top: 4.0, bottom: 4),
                 child: ListTile(

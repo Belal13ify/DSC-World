@@ -9,6 +9,8 @@ import 'dart:convert';
 class Data extends GetxController {
   List<String> continents = [];
   List<String> countries = [];
+  List<String> countriesFilter = [];
+  bool searchIsActive = false;
   String continentName = '';
   String countryName = '';
   String nativeName = '';
@@ -71,5 +73,19 @@ class Data extends GetxController {
         emoji = v['emoji'];
       }
     });
+  }
+
+  void search(String query) {
+    countriesFilter = countries.where((country) {
+      final countryLower = country.toLowerCase();
+      final queryLower = query.toLowerCase();
+      return countryLower.contains(queryLower);
+    }).toList();
+    update();
+  }
+
+  void toggleSearch() {
+    searchIsActive = !searchIsActive;
+    update();
   }
 }

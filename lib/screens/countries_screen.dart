@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import '../widgets/single_country_container.dart';
 import 'package:get/get.dart';
 
+// Countries screen to show the countries based on the pressed continent
+
 class Countries extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -12,11 +14,12 @@ class Countries extends StatelessWidget {
       builder: (value) => Scaffold(
         appBar: AppBar(
             actions: [
+              //triggering the search icon button in appbar
               IconButton(
                 onPressed: () {
+                  value.toggleSearch();
                   textController.text = '';
                   textController.clear();
-                  value.toggleSearch();
                 },
                 icon: Icon(Icons.search),
                 iconSize: 30,
@@ -36,11 +39,11 @@ class Countries extends StatelessWidget {
           padding: const EdgeInsets.only(top: 15.0),
           child: Column(
             children: [
+              // checking if search field bool is active or not to either shows the search field or not
               value.searchIsActive
                   ? TextField(
                       onChanged: (val) {
                         value.search(val);
-                        // print(val.toLowerCase());
                       },
                       controller: textController,
                       style: TextStyle(
@@ -51,13 +54,14 @@ class Countries extends StatelessWidget {
                       decoration: InputDecoration(
                         hintText: 'Search for a Country',
                         hintStyle: TextStyle(),
+
+                        //triggering the clear icon button in search field to clear the text field and close the search option
                         suffixIcon: IconButton(
                           icon: Icon(Icons.close),
                           onPressed: () {
+                            value.toggleSearch();
                             textController.text = '';
                             textController.clear();
-                            value.toggleSearch();
-
                             FocusScope.of(context).requestFocus(FocusNode());
                           },
                         ),
@@ -66,7 +70,7 @@ class Countries extends StatelessWidget {
                         ),
                       ),
                     )
-                  : Container(),
+                  : Container(), // shows empty container if no search query in the search field
               Expanded(
                 child: GetBuilder<Data>(
                   builder: (value) => ListView.builder(

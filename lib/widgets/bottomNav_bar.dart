@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:dsc_world/Controllers/bottomNavigation_Controller.dart';
 import 'package:get/get.dart';
 
+//Bottom Navigation bar widget
 class BottomNavBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

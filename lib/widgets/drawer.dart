@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:dsc_world/Controllers/darkmode_controller.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+// This is the drawr widgets that has the logo and Dark mode switch
 class DrawerSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -32,6 +33,8 @@ class DrawerSection extends StatelessWidget {
               'DARK MODE',
               style: TextStyle(fontSize: 18, color: Colors.blueGrey),
             ),
+
+            //Dark mode switch controller with GETX
             trailing: GetBuilder<DarkModeControler>(builder: (controler) {
               return Switch(
                   activeColor: Colors.green,

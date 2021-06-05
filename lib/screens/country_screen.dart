@@ -3,6 +3,7 @@ import 'package:dsc_world/Controllers/jsonData_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+// this is the single country screen information to show information about the country pressed
 class CountryInfo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -36,9 +37,10 @@ class CountryInfo extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
+                // this is where it shows the country flag or the emoji
                 Text(
                   value.emoji,
-                  style: TextStyle(fontSize: 100),
+                  style: TextStyle(fontSize: 130),
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,

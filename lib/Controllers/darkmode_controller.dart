@@ -2,8 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:get/get.dart';
 
+//Controlls the current Dark mode either light or dark
+
 class DarkModeControler extends GetxController {
   bool isActive = false;
+
+  //Dark theme if activates when dark mode is on
+
   get darkTheme => ThemeData(
         primarySwatch: Colors.grey,
         appBarTheme:
@@ -17,7 +22,7 @@ class DarkModeControler extends GetxController {
         accentColor: Colors.pink,
         accentIconTheme: IconThemeData(color: Colors.white),
       );
-
+//ligh theme if activates when dark mode is off
   get lightTheme => ThemeData(
         primarySwatch: Colors.grey,
         appBarTheme: AppBarTheme(

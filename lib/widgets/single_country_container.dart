@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import 'package:dsc_world/Controllers/favourites_controller.dart';
 import 'package:dsc_world/Controllers/jsonData_controller.dart';
 
-List<String> favouriteCountries = [];
+// This is a class widget to show only the single country container Widget to instead of repeating ourselves with creating it many times
 
 class CountryContainer extends StatelessWidget {
   final String countryName;
@@ -31,6 +31,8 @@ class CountryContainer extends StatelessWidget {
                   },
                   title: Text(countryName,
                       style: TextStyle(fontSize: 19, color: Colors.white)),
+
+                  //Toggle Star Icon(Favourite icon) either on or off
                   trailing: GestureDetector(
                     child: Icon(
                       value.checkIconFavourite(countryName)

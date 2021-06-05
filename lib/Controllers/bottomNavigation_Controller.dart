@@ -1,5 +1,7 @@
 import 'package:get/get.dart';
 
+// controlls the current Navigation bar
+
 class BottomNavController extends GetxController {
   int selectedIndex = 0;
   @override

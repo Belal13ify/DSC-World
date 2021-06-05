@@ -6,6 +6,8 @@ import 'favourite.dart';
 import 'package:dsc_world/Controllers/bottomNavigation_Controller.dart';
 import 'package:get/get.dart';
 
+// This is the home screen that shows the current screen either continents screen or favourite screen based on the index of bottom navigation bar, Default is Zero which is the continents screen
+
 class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

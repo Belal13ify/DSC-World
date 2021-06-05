@@ -3,9 +3,7 @@ import 'dart:async' show Future;
 import 'package:flutter/services.dart' show rootBundle;
 import 'dart:convert';
 
-//Dark Mode Controlere
-
-// Loading Data from the jSON
+//Controlls Data comming from the Json file
 class Data extends GetxController {
   List<String> continents = [];
   List<String> countries = [];
@@ -27,11 +25,14 @@ class Data extends GetxController {
     super.onInit();
   }
 
+  // decoding the Json file to string
   Future decodeJson() async {
     String jsonString = await rootBundle.loadString('assets/data.json');
     final data = json.decode(jsonString);
     return data;
   }
+
+  // parsing continents on splash screen and updating the variable List<String> continents
 
   Future<void> getContinents() async {
     var data = await decodeJson();
@@ -41,6 +42,8 @@ class Data extends GetxController {
     });
     update();
   }
+
+//Parsing countries based on the pressed continent and updateing List countries vavriable
 
   Future<void> getCountries(String continent) async {
     var data = await decodeJson();
@@ -58,6 +61,7 @@ class Data extends GetxController {
     update();
   }
 
+  // loading single country information based on the pressed country
   Future<void> getCountryInfo(String country) async {
     var data = await decodeJson();
     var countriesjSON = data['countries'];
@@ -75,6 +79,7 @@ class Data extends GetxController {
     });
   }
 
+// Search method to search for a country based on the query sent in the search field
   void search(String query) {
     countriesFilter = countries.where((country) {
       final countryLower = country.toLowerCase();

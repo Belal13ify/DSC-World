@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+//this is a class widget to show the continent container instead of creating it many times
 class ContinentContainer extends StatelessWidget {
   final String continent;
   final String imagePath;

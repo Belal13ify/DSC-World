@@ -28,7 +28,7 @@ class Countries extends StatelessWidget {
             title: Text(
               value.continentName,
               style: TextStyle(
-                fontSize: 28,
+                fontSize: 20,
                 color: Colors.white,
               ),
             ),
@@ -41,32 +41,37 @@ class Countries extends StatelessWidget {
             children: [
               // checking if search field bool is active or not to either shows the search field or not
               value.searchIsActive
-                  ? TextField(
-                      onChanged: (val) {
-                        value.search(val);
-                      },
-                      controller: textController,
-                      style: TextStyle(
-                        fontSize: 20,
-                      ),
-                      textAlign: TextAlign.center,
-                      keyboardType: TextInputType.text,
-                      decoration: InputDecoration(
-                        hintText: 'Search for a Country',
-                        hintStyle: TextStyle(),
-
-                        //triggering the clear icon button in search field to clear the text field and close the search option
-                        suffixIcon: IconButton(
-                          icon: Icon(Icons.close),
-                          onPressed: () {
-                            value.toggleSearch();
-                            textController.text = '';
-                            textController.clear();
-                            FocusScope.of(context).requestFocus(FocusNode());
-                          },
+                  ? Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 10),
+                      child: TextField(
+                        onChanged: (val) {
+                          value.search(val);
+                        },
+                        controller: textController,
+                        style: TextStyle(
+                          fontSize: 18,
                         ),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(32.0)),
+                        textAlign: TextAlign.center,
+                        keyboardType: TextInputType.text,
+                        decoration: InputDecoration(
+                          contentPadding: EdgeInsets.all(10),
+                          hintText: 'Search for a Country',
+                          hintStyle: TextStyle(fontSize: 16),
+
+                          //triggering the clear icon button in search field to clear the text field and close the search option
+                          suffixIcon: IconButton(
+                            icon: Icon(Icons.close),
+                            onPressed: () {
+                              value.toggleSearch();
+                              textController.text = '';
+                              textController.clear();
+                              FocusScope.of(context).requestFocus(FocusNode());
+                            },
+                          ),
+                          border: OutlineInputBorder(
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(30.0)),
+                          ),
                         ),
                       ),
                     )
@@ -81,8 +86,12 @@ class Countries extends StatelessWidget {
                         var name = textController.text.isEmpty
                             ? value.countries[index]
                             : value.countriesFilter[index];
+                        var emoji = textController.text.isEmpty
+                            ? value.emojies[index]
+                            : value.emojies[index];
                         return CountryContainer(
                           countryName: name,
+                          emoji: emoji,
                         );
                       }),
                 ),

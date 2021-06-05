@@ -12,13 +12,14 @@ class CountryInfo extends StatelessWidget {
           appBar: AppBar(
               backgroundColor: Color(0xffF44236),
               title: Text(value.countryName,
-                  style: TextStyle(fontSize: 22, color: Colors.white)),
+                  style: TextStyle(fontSize: 18, color: Colors.white)),
               centerTitle: true,
               actions: [
                 GetBuilder<FavouritesControler>(
                   builder: (controller) => IconButton(
                     onPressed: () async {
-                      await controller.checkfavourite(value.countryName);
+                      await controller.checkfavourite(
+                          value.countryName, value.emoji);
                     },
                     icon: Icon(
                         controller.checkIconFavourite(value.countryName)
@@ -33,94 +34,83 @@ class CountryInfo extends StatelessWidget {
                 )
               ]),
           body: SafeArea(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                // this is where it shows the country flag or the emoji
-                Text(
-                  value.emoji,
-                  style: TextStyle(fontSize: 130),
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    Text(
-                      'Native Name: ',
+            child: Padding(
+              padding: const EdgeInsets.only(bottom: 10),
+              child: ListView(
+                children: [
+                  // this is where it shows the country flag or the emoji
+                  Center(
+                    child: Container(
+                      child: Text(
+                        value.emoji,
+                        // textAlign: TextAlign.center,
+                        style: TextStyle(fontSize: 140),
+                      ),
+                    ),
+                  ),
+
+                  ListTile(
+                    leading: Icon(Icons.anchor),
+                    title: Text(
+                      'Native Name',
                       style: TextStyle(fontSize: 20),
                     ),
-                    Text(
+                    subtitle: Text(
                       value.nativeName,
+                    ),
+                  ),
+                  ListTile(
+                    leading: Icon(Icons.phone),
+                    title: Text(
+                      'Phone Code',
                       style: TextStyle(fontSize: 20),
-                    )
-                  ],
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    Text(
-                      'Phone Code: ',
-                      style: TextStyle(fontSize: 22),
                     ),
-                    Text(
+                    subtitle: Text(
                       value.phoneCode,
-                      style: TextStyle(fontSize: 22),
-                    )
-                  ],
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    Text(
-                      'Located in: ',
-                      style: TextStyle(fontSize: 22),
                     ),
-                    Text(
-                      value.continentName,
-                      style: TextStyle(fontSize: 22),
-                    )
-                  ],
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    Text(
-                      'Capital: ',
-                      style: TextStyle(fontSize: 22),
+                  ),
+                  ListTile(
+                    leading: Icon(Icons.location_on),
+                    title: Text(
+                      'Location',
+                      style: TextStyle(fontSize: 20),
                     ),
-                    Text(
+                    subtitle: Text(
+                      value.continent,
+                    ),
+                  ),
+                  ListTile(
+                    leading: Icon(Icons.home),
+                    title: Text(
+                      'Capital',
+                      style: TextStyle(fontSize: 20),
+                    ),
+                    subtitle: Text(
                       value.captial,
-                      style: TextStyle(fontSize: 22),
-                    )
-                  ],
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    Text(
-                      'Currency: ',
-                      style: TextStyle(fontSize: 22),
                     ),
-                    Text(
+                  ),
+                  ListTile(
+                    leading: Icon(Icons.attach_money),
+                    title: Text(
+                      'Currency',
+                      style: TextStyle(fontSize: 20),
+                    ),
+                    subtitle: Text(
                       value.currency,
-                      style: TextStyle(fontSize: 22),
-                    )
-                  ],
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    Text(
-                      'Languages: ',
-                      style: TextStyle(fontSize: 22),
                     ),
-                    Text(
+                  ),
+                  ListTile(
+                    leading: Icon(Icons.language),
+                    title: Text(
+                      'Languages',
+                      style: TextStyle(fontSize: 20),
+                    ),
+                    subtitle: Text(
                       value.languages.toString(),
-                      style: TextStyle(fontSize: 22),
-                    )
-                  ],
-                ),
-              ],
+                    ),
+                  ),
+                ],
+              ),
             ),
           )),
     );

@@ -5,7 +5,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class FavouritesControler extends GetxController {
   List<String> favouriteList = [];
-
+  List<String> favouriteCountriesEmojis = [];
   @override
   void onInit() {
     getFavouriteCountries();
@@ -17,21 +17,26 @@ class FavouritesControler extends GetxController {
     final prefs = await SharedPreferences.getInstance();
 
     favouriteList = prefs.getStringList('favouriteList') ?? [];
+    favouriteCountriesEmojis = prefs.getStringList('favEmoji') ?? [];
 
     update();
   }
 
 //checking if country is favourite or not and then toggle it in the favourite list
-  Future<void> checkfavourite(String country) async {
+  Future<void> checkfavourite(String country, String emoji) async {
     final prefs = await SharedPreferences.getInstance();
     bool isFavourite = favouriteList.contains(country);
 
     if (isFavourite) {
       favouriteList.remove(country);
+      favouriteCountriesEmojis.remove(emoji);
       prefs.setStringList('favouriteList', favouriteList);
+      prefs.setStringList('favEmoji', favouriteCountriesEmojis);
     } else {
       favouriteList.add(country);
+      favouriteCountriesEmojis.add(emoji);
       prefs.setStringList('favouriteList', favouriteList);
+      prefs.setStringList('favEmoji', favouriteCountriesEmojis);
     }
 
     update();
@@ -47,6 +52,7 @@ class FavouritesControler extends GetxController {
     final prefs = await SharedPreferences.getInstance();
     favouriteList.remove(country);
     prefs.setStringList('favouriteList', favouriteList);
+    prefs.setStringList('favEmoji', favouriteCountriesEmojis);
     update();
   }
 }

@@ -7,7 +7,9 @@ import 'dart:convert';
 class Data extends GetxController {
   List<String> continents = [];
   List<String> countries = [];
+
   List<String> countriesFilter = [];
+  List<String> emojies = [];
   bool searchIsActive = false;
   String continentName = '';
   String countryName = '';
@@ -48,6 +50,7 @@ class Data extends GetxController {
   Future<void> getCountries(String continent) async {
     var data = await decodeJson();
     countries = [];
+    emojies = [];
     var continentJson = data['continents'];
     var countriesjSON = data['countries'];
 
@@ -55,6 +58,7 @@ class Data extends GetxController {
       //parsing countries and matching the pressed continent
       if (continentJson[v['continent']] == continent) {
         countries.add(v['name']);
+        emojies.add(v['emoji']);
       }
     });
     continentName = continent;
@@ -86,6 +90,7 @@ class Data extends GetxController {
       final queryLower = query.toLowerCase();
       return countryLower.contains(queryLower);
     }).toList();
+
     update();
   }
 

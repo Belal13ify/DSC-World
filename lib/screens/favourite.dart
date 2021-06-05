@@ -37,9 +37,10 @@ class Favourite extends StatelessWidget {
                       itemCount: value.favouriteList.length,
                       itemBuilder: (BuildContext context, int index) {
                         var name = value.favouriteList[index];
+                        var emoji = value.favouriteCountriesEmojis[index];
                         return Padding(
                           padding: const EdgeInsets.only(
-                              left: 5.0, right: 5.0, top: 10),
+                              left: 5.0, right: 5.0, bottom: 8),
                           child: Card(
                             color: Color(0xff043551),
                             shape: RoundedRectangleBorder(
@@ -50,11 +51,15 @@ class Favourite extends StatelessWidget {
                                   await controller.getCountryInfo(name);
                                   Get.to(() => CountryInfo());
                                 },
+                                leading: Text(
+                                  emoji,
+                                  style: TextStyle(fontSize: 25),
+                                ),
                                 title: Text(
                                   name,
                                   // textAlign: TextAlign.left,
                                   style: TextStyle(
-                                      fontSize: 20, color: Colors.white),
+                                      fontSize: 17, color: Colors.white),
                                 ),
 
                                 //Icon that deletes the country on pressed

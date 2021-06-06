@@ -4,7 +4,7 @@ import 'package:dsc_world/Controllers/darkmode_controller.dart';
 import 'package:dsc_world/Controllers/jsonData_controller.dart';
 import 'package:get/get.dart';
 
-import 'country_screen.dart';
+import 'country_info_screen.dart';
 
 // this is the favourite screen to show the favourite countries that have been added
 

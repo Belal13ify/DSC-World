@@ -10,6 +10,7 @@ class Data extends GetxController {
 
   List<String> countriesFilter = [];
   List<String> emojies = [];
+  List<String> emojiesFilter = [];
   bool searchIsActive = false;
   String continentName = '';
   String countryName = '';
@@ -88,8 +89,16 @@ class Data extends GetxController {
     countriesFilter = countries.where((country) {
       final countryLower = country.toLowerCase();
       final queryLower = query.toLowerCase();
-      return countryLower.contains(queryLower);
+      bool filteredCountry = countryLower.contains(queryLower);
+
+      return filteredCountry;
     }).toList();
+
+    // filtering and showing emojies on search query
+    emojiesFilter = [];
+    for (String country in countriesFilter) {
+      emojiesFilter.add(emojies[countries.indexOf(country)]);
+    }
 
     update();
   }

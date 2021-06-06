@@ -88,7 +88,7 @@ class Countries extends StatelessWidget {
                             : value.countriesFilter[index];
                         var emoji = textController.text.isEmpty
                             ? value.emojies[index]
-                            : value.emojies[index];
+                            : value.emojiesFilter[index];
                         return CountryContainer(
                           countryName: name,
                           emoji: emoji,

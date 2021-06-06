@@ -1,4 +1,4 @@
-import 'package:dsc_world/screens/country_screen.dart';
+import 'package:dsc_world/screens/country_info_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:dsc_world/Controllers/favourites_controller.dart';

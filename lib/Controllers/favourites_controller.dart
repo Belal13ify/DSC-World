@@ -48,9 +48,10 @@ class FavouritesControler extends GetxController {
   }
 
 //Delete country from favourite based on the pressed country
-  Future<void> deleteFromFavScreen(String country) async {
+  Future<void> deleteFromFavScreen(String country, String emoji) async {
     final prefs = await SharedPreferences.getInstance();
     favouriteList.remove(country);
+    favouriteCountriesEmojis.remove(emoji);
     prefs.setStringList('favouriteList', favouriteList);
     prefs.setStringList('favEmoji', favouriteCountriesEmojis);
     update();

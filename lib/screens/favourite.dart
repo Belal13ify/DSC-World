@@ -65,7 +65,8 @@ class Favourite extends StatelessWidget {
                                 //Icon that deletes the country on pressed
                                 trailing: IconButton(
                                     onPressed: () async {
-                                      await value.deleteFromFavScreen(name);
+                                      await value.deleteFromFavScreen(
+                                          name, emoji);
                                     },
                                     icon: GetBuilder<DarkModeControler>(
                                         builder: (controller) => Icon(

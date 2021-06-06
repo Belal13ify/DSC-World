@@ -76,7 +76,7 @@ class CountryInfo extends StatelessWidget {
                       style: TextStyle(fontSize: 20),
                     ),
                     subtitle: Text(
-                      value.continent,
+                      value.continentName,
                     ),
                   ),
                   ListTile(

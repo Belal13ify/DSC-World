@@ -89,7 +89,7 @@ class Data extends GetxController {
     countriesFilter = countries.where((country) {
       final countryLower = country.toLowerCase();
       final queryLower = query.toLowerCase();
-      bool filteredCountry = countryLower.contains(queryLower);
+      bool filteredCountry = countryLower.startsWith(queryLower);
 
       return filteredCountry;
     }).toList();

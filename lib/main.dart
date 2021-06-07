@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:dsc_world/Controllers/darkmode_controller.dart';
 import 'screens/splash_screen.dart';
@@ -15,6 +16,9 @@ import 'screens/splash_screen.dart';
   6- search feature will search for the country based on the query entered, for example if a country has the search query in position of its letters, it will show the country, it doesnt have to be in the first letters
  */
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations(
+      [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
   runApp(MyApp());
 }
 

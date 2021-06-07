@@ -20,7 +20,7 @@ class Splash extends StatelessWidget {
         backgroundColor: Colors.white,
         text: 'Welcome to DSC World',
         textStyle: TextStyle(
-            fontSize: 33, color: Colors.blue, fontWeight: FontWeight.bold),
+            fontSize: 28, color: Colors.blue, fontWeight: FontWeight.bold),
       ),
     );
   }

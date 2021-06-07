@@ -42,7 +42,7 @@ class FavouritesControler extends GetxController {
     update();
   }
 
-  //checking if the star Icon is favourite or not, toggle between them for the pressed conuntry
+  //checking if the star Icon is favourite or not, toggle between them for the pressed country
   bool checkIconFavourite(String country) {
     return favouriteList.contains(country) ? true : false;
   }

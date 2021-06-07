@@ -7,6 +7,8 @@ import 'package:get/get.dart';
 class CountryInfo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    var height = MediaQuery.of(context).size.height;
+    print(height);
     return GetBuilder<Data>(
       builder: (value) => Scaffold(
           appBar: AppBar(
@@ -34,83 +36,87 @@ class CountryInfo extends StatelessWidget {
                 )
               ]),
           body: SafeArea(
-            child: Padding(
-              padding: const EdgeInsets.only(bottom: 10),
-              child: ListView(
-                children: [
-                  // this is where it shows the country flag or the emoji
-                  Center(
-                    child: Container(
-                      child: Text(
-                        value.emoji,
-                        // textAlign: TextAlign.center,
-                        style: TextStyle(fontSize: 140),
-                      ),
+            child: Column(
+              children: [
+                Center(
+                  child: Container(
+                    child: Text(
+                      value.emoji,
+                      // textAlign: TextAlign.center,
+                      style: TextStyle(fontSize: 110),
                     ),
                   ),
+                ),
+                Expanded(
+                  child: ListView(
+                    itemExtent: height >= 592 ? 60 : 70,
+                    children: [
+                      // this is where it shows the country flag or the emoji
 
-                  ListTile(
-                    leading: Icon(Icons.anchor),
-                    title: Text(
-                      'Native Name',
-                      style: TextStyle(fontSize: 20),
-                    ),
-                    subtitle: Text(
-                      value.nativeName,
-                    ),
+                      ListTile(
+                        leading: Icon(Icons.anchor),
+                        title: Text(
+                          'Native Name',
+                          style: TextStyle(fontSize: 20),
+                        ),
+                        subtitle: Text(
+                          value.nativeName,
+                        ),
+                      ),
+                      ListTile(
+                        leading: Icon(Icons.phone),
+                        title: Text(
+                          'Phone Code',
+                          style: TextStyle(fontSize: 20),
+                        ),
+                        subtitle: Text(
+                          value.phoneCode,
+                        ),
+                      ),
+                      ListTile(
+                        leading: Icon(Icons.location_on),
+                        title: Text(
+                          'Location',
+                          style: TextStyle(fontSize: 20),
+                        ),
+                        subtitle: Text(
+                          value.continentName,
+                        ),
+                      ),
+                      ListTile(
+                        leading: Icon(Icons.home),
+                        title: Text(
+                          'Capital',
+                          style: TextStyle(fontSize: 20),
+                        ),
+                        subtitle: Text(
+                          value.captial,
+                        ),
+                      ),
+                      ListTile(
+                        leading: Icon(Icons.attach_money),
+                        title: Text(
+                          'Currency',
+                          style: TextStyle(fontSize: 20),
+                        ),
+                        subtitle: Text(
+                          value.currency,
+                        ),
+                      ),
+                      ListTile(
+                        leading: Icon(Icons.language),
+                        title: Text(
+                          'Languages',
+                          style: TextStyle(fontSize: 20),
+                        ),
+                        subtitle: Text(
+                          value.languages.toString(),
+                        ),
+                      ),
+                    ],
                   ),
-                  ListTile(
-                    leading: Icon(Icons.phone),
-                    title: Text(
-                      'Phone Code',
-                      style: TextStyle(fontSize: 20),
-                    ),
-                    subtitle: Text(
-                      value.phoneCode,
-                    ),
-                  ),
-                  ListTile(
-                    leading: Icon(Icons.location_on),
-                    title: Text(
-                      'Location',
-                      style: TextStyle(fontSize: 20),
-                    ),
-                    subtitle: Text(
-                      value.continentName,
-                    ),
-                  ),
-                  ListTile(
-                    leading: Icon(Icons.home),
-                    title: Text(
-                      'Capital',
-                      style: TextStyle(fontSize: 20),
-                    ),
-                    subtitle: Text(
-                      value.captial,
-                    ),
-                  ),
-                  ListTile(
-                    leading: Icon(Icons.attach_money),
-                    title: Text(
-                      'Currency',
-                      style: TextStyle(fontSize: 20),
-                    ),
-                    subtitle: Text(
-                      value.currency,
-                    ),
-                  ),
-                  ListTile(
-                    leading: Icon(Icons.language),
-                    title: Text(
-                      'Languages',
-                      style: TextStyle(fontSize: 20),
-                    ),
-                    subtitle: Text(
-                      value.languages.toString(),
-                    ),
-                  ),
-                ],
-              ),
+                ),
+              ],
             ),
           )),
     );

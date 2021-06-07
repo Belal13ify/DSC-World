@@ -75,7 +75,7 @@ class Countries extends StatelessWidget {
                         ),
                       ),
                     )
-                  : Container(), // shows empty container if no search query in the search field
+                  : Container(), // shows empty container if no search field is not active
               Expanded(
                 child: GetBuilder<Data>(
                   builder: (value) => ListView.builder(
@@ -83,9 +83,12 @@ class Countries extends StatelessWidget {
                           ? value.countries.length
                           : value.countriesFilter.length,
                       itemBuilder: (BuildContext context, int index) {
+                        //shows all country or filtered country depending on the text field is empty or not
                         var name = textController.text.isEmpty
                             ? value.countries[index]
                             : value.countriesFilter[index];
+
+                        //Same Goes for Emoji and filtered emojis
                         var emoji = textController.text.isEmpty
                             ? value.emojies[index]
                             : value.emojiesFilter[index];

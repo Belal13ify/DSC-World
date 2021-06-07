@@ -14,7 +14,7 @@ class CountryContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 5.0, right: 5.0, top: 12),
+      padding: const EdgeInsets.only(left: 10.0, right: 10.0, top: 10),
       child: GetBuilder<Data>(
         builder: (controller) => Card(
             color: Color(0xff043551),

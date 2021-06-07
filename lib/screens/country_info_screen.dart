@@ -8,6 +8,7 @@ class CountryInfo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var height = MediaQuery.of(context).size.height;
+
     print(height);
     return GetBuilder<Data>(
       builder: (value) => Scaffold(
@@ -38,16 +39,20 @@ class CountryInfo extends StatelessWidget {
           body: SafeArea(
             child: Column(
               children: [
-                Center(
-                  child: Container(
-                    child: Text(
-                      value.emoji,
-                      // textAlign: TextAlign.center,
-                      style: TextStyle(fontSize: 110),
+                Expanded(
+                  flex: 1,
+                  child: Center(
+                    child: Container(
+                      child: Text(
+                        value.emoji,
+                        // textAlign: TextAlign.center,
+                        style: TextStyle(fontSize: 110),
+                      ),
                     ),
                   ),
                 ),
                 Expanded(
+                  flex: 3,
                   child: ListView(
                     itemExtent: height >= 592 ? 60 : 70,
                     children: [

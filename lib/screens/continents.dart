@@ -9,8 +9,6 @@ import 'countries_screen.dart';
 class Continents extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    var deviceWidth = MediaQuery.of(context).size.width;
-    var deviceheight = MediaQuery.of(context).size.height;
     return GetBuilder<Data>(
       builder: (value) => GridView(
         padding: EdgeInsets.symmetric(horizontal: 15),
@@ -18,7 +16,7 @@ class Continents extends StatelessWidget {
             crossAxisCount: 2,
             crossAxisSpacing: 20,
             mainAxisSpacing: 5,
-            childAspectRatio: 2.5 * deviceWidth / deviceheight),
+            childAspectRatio: 3 / 2),
         children: value.continents.map((continent) {
           return ContinentContainer(
               continent: continent,

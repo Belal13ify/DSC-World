@@ -9,7 +9,6 @@ class CountryInfo extends StatelessWidget {
   Widget build(BuildContext context) {
     var height = MediaQuery.of(context).size.height;
 
-    print(height);
     return GetBuilder<Data>(
       builder: (value) => Scaffold(
           appBar: AppBar(

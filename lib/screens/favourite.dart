@@ -14,6 +14,16 @@ class Favourite extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      //FAP to clear all countries in Favourite list
+      floatingActionButton: GetBuilder<FavouritesControler>(
+        builder: (value) => FloatingActionButton(
+          backgroundColor: Colors.red,
+          child: Icon(Icons.delete_forever),
+          onPressed: () {
+            value.deleteAllFav(context);
+          },
+        ),
+      ),
       body: SafeArea(
           child: Padding(
         padding: const EdgeInsets.only(top: 15.0),
@@ -62,11 +72,12 @@ class Favourite extends StatelessWidget {
                                       fontSize: 17, color: Colors.white),
                                 ),
 
-                                //Icon that deletes the country on pressed
+                                // Delete Icon that deletes the country on pressed
                                 trailing: IconButton(
                                     onPressed: () async {
-                                      await value.deleteFromFavScreen(
-                                          name, emoji);
+                                      //confirmation before deleting single favourite
+                                      await value.showDialouge(
+                                          context, name, emoji);
                                     },
                                     icon: GetBuilder<DarkModeControler>(
                                         builder: (controller) => Icon(

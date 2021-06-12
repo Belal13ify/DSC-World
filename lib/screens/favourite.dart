@@ -18,7 +18,10 @@ class Favourite extends StatelessWidget {
       floatingActionButton: GetBuilder<FavouritesControler>(
         builder: (value) => FloatingActionButton(
           backgroundColor: Colors.red,
-          child: Icon(Icons.delete_forever),
+          child: Icon(
+            Icons.delete_forever,
+            size: 35,
+          ),
           onPressed: () {
             value.deleteAllFav(context);
           },

@@ -6,14 +6,16 @@ import 'screens/splash_screen.dart';
 
 /* 
   please read carefully before using the app
-  1- I used GETX state managment to manage my app state only when needed to increase the app perfomance instead of using statful widgets many times,
+  1- This Project is based on Flutter SDK 2.2
+  2- I used GETX state managment to manage my app state only when needed to increase the app perfomance instead of using statful widgets many times,
 
-  2- I didnt use Statefull widget at all 
+  3- I didnt use Statefull widget at all 
 
-  3- I used shared preferences to store the state dark mode and favourite list in the local storage so I can have them back if I restarted or closed the app 
-  4- I have added many features like deleting the country from the favourite list if you pressed the delete button,
-  5- add a feature to either mark the country as favourite or not in the country information screen
-  6- search feature will search for the country based on the query entered, for example if a country has the search query in position of its letters, it will show the country, it doesnt have to be in the first letters
+  4- I used shared preferences to store the state dark mode and favourite list in the local storage so I can have them back if I restarted or closed the app 
+  5- I have added many features like deleting the country from the favourite list if you pressed the delete button, and also, delete all country on pressing FAB, and there is a confirmation before deleting too.
+  6- add a feature to either mark the country as favourite or not in the country information screen
+  7- search feature will search for the country based on the entered query, for example if a country has the search query in the first position of its characters, it will show the country.
+  8- app runs in portaid mode only
  */
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

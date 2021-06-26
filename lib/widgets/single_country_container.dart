@@ -33,7 +33,7 @@ class CountryContainer extends StatelessWidget {
                   style: TextStyle(fontSize: 25),
                 ),
                 title: Text(countryName,
-                    style: TextStyle(fontSize: 17, color: Colors.white)),
+                    style: TextStyle(fontSize: 16, color: Colors.white)),
 
                 //Toggle Star Icon(Favourite icon) either on or off
                 trailing: GestureDetector(

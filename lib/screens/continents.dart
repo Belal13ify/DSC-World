@@ -11,7 +11,7 @@ class Continents extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetBuilder<Data>(
         builder: (value) => Wrap(
-              spacing: 30,
+              spacing: 20,
               runSpacing: 15,
               alignment: WrapAlignment.spaceEvenly,
               children: value.continents.map((continent) {

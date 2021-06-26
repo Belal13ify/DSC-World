@@ -24,7 +24,7 @@ class ContinentContainer extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             CircleAvatar(
-              radius: 30,
+              radius: 35,
               child: Image.asset(imagePath),
             ),
             Text(continent,

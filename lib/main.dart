@@ -5,6 +5,8 @@ import 'package:dsc_world/Controllers/darkmode_controller.dart';
 import 'screens/splash_screen.dart';
 
 /* 
+  Please note, I have changed the Youtube Recording video URL, This is the new URL >> https://youtu.be/79loy7ZWQ0U 
+  The one in the form is old one
   please read carefully before using the app
   1- This Project is based on Flutter SDK 2.2
   2- I used GETX state managment to manage my app state only when needed to increase the app perfomance instead of using statful widgets many times,

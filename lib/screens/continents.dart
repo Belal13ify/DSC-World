@@ -10,21 +10,24 @@ class Continents extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetBuilder<Data>(
-        builder: (value) => Wrap(
-              spacing: 20,
-              runSpacing: 15,
-              alignment: WrapAlignment.spaceEvenly,
-              children: value.continents.map((continent) {
-                return ContinentContainer(
-                    continent: continent,
-                    //parsing continent images with variable continent name
-                    imagePath: 'assets/images/$continent.png',
-                    pressed: () async {
-                      await value.getCountries(continent);
-                      //Navigates to countries page with GETX state management
-                      Get.to(() => Countries());
-                    });
-              }).toList(),
+        builder: (value) => Padding(
+              padding: const EdgeInsets.only(bottom: 8.0),
+              child: Wrap(
+                spacing: 20,
+                runSpacing: 15,
+                alignment: WrapAlignment.spaceEvenly,
+                children: value.continents.map((continent) {
+                  return ContinentContainer(
+                      continent: continent,
+                      //parsing continent images with variable continent name
+                      imagePath: 'assets/images/$continent.png',
+                      pressed: () async {
+                        await value.getCountries(continent);
+                        //Navigates to countries page with GETX state management
+                        Get.to(() => Countries());
+                      });
+                }).toList(),
+              ),
             ));
   }
 }

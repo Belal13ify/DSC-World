@@ -5,12 +5,12 @@ import 'package:dsc_world/Controllers/darkmode_controller.dart';
 import 'screens/splash_screen.dart';
 
 /* 
+  Please note, I have changed the Youtube Recording video URL, This is the new URL >> https://youtu.be/79loy7ZWQ0U 
+  The one in the form is old one
   please read carefully before using the app
   1- This Project is based on Flutter SDK 2.2
   2- I used GETX state managment to manage my app state only when needed to increase the app perfomance instead of using statful widgets many times,
-
   3- I didnt use Statefull widget at all 
-
   4- I used shared preferences to store the state dark mode and favourite list in the local storage so I can have them back if I restarted or closed the app 
   5- I have added many features like deleting the country from the favourite list if you pressed the delete button, and also, delete all country on pressing FAB, and there is a confirmation before deleting too.
   6- add a feature to either mark the country as favourite or not in the country information screen
